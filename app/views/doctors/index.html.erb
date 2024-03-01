@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="bg">
+<nav class ="navbar n">
+<h5 class="text-white">Dr.Appointments<span class="text-primary"> System<span></h5>
+<div>
+<%= link_to 'New Doctor', new_doctor_path, class:"btn btn-warning btn-sm" %>
+<%= link_to 'New Patient', new_patient_path, class:"btn btn-success btn-sm" %>
+<%= link_to 'All patient', patients_path, class:"btn btn-primary btn-sm" %>
+</div>
+</nav>
+
+<h3 class="text-center"> Doctor listing </h3>
+    <div class="container bg-white">
+      
+            <table class="table">
+                <thead>
+                    <th>Name </th>
+                    <th>Specialties </th>
+                    <th></th>
+                </thead>
+            <tbody>
+                <% @doctors.each do |doctor |%>
+                <tr>
+                    <td><%= doctor.name %></td>
+                    <td><%= doctor.specialties %></td>
+                    <td><%= link_to 'view' , doctor , class:"btn btn-outline-success btn-sm" %></td>
+                </tr>
+                <% end %>
+            </tbody>
+            </table>   
+          <%= paginate @doctors %> 
+    </div>
+
+</body>
+</html>

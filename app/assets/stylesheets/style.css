@@ -1,0 +1,18 @@
+.bg{
+    background-image: url("https://img.freepik.com/free-photo/young-handsome-physician-medical-robe-with-stethoscope_1303-17818.jpg?w=900&t=st=1705917773~exp=1705918373~hmac=1e3f223cd573c76e80ea44c7e05797357e9f2e3cadd0f4b5c31c400d2d13524e");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.n{
+    background-color: black;
+}
+.dn{
+    background-image: url("https://img.freepik.com/premium-photo/abstract-medical-business-pathway-background_1962-276.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.pb{
+    background-image: url("https://img.freepik.com/free-photo/abstract-blur-hospital-clinic-interior_74190-4854.jpg?w=900&t=st=1705918255~exp=1705918855~hmac=0554e69f9a758f6af6fb7bef85b98a98e9041d80812d707e138d9e53b6436e71");
+    background-size: cover;
+    background-repeat: no-repeat;
+}

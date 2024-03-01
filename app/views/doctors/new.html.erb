@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="bg">
+<%= render "doctors/nav" %>
+<div class="container bg-white" style="width:50%; height:auto; margin-top:10px">
+<h3> Add New Doctor</h3>
+<%= form_with model: @doctor do | form | %>
+    <div>
+        <%= form.label :name %>
+        <%= form.text_field :name, class:"form-control" %>
+        <% @doctor.errors.full_messages_for(:name).each do | message | %>
+           <small class="text-danger"> <%= message %></small>
+            <% end %>
+    </div>
+    <div>
+        <%= form.label :specialties %>
+        <%= form.text_field :specialties, class:"form-control" %>
+        <% @doctor.errors.full_messages_for(:specialties).each do | message | %>
+            <small class="text-danger"> <%= message %></small>
+             <% end %>
+    </div>
+    <div>
+        <%= form.label :phone %>
+        <%= form.telephone_field :phone, class:"form-control" %>
+        <% @doctor.errors.full_messages_for(:phone).each do | message | %>
+            <small class="text-danger"> <%= message %></small>
+             <% end %>
+    </div>
+    <div><br>
+         <%= form.submit class:"btn btn-success btn-sm"%>
+         <%= link_to "Bank", root_path, class:"btn btn-outline-primary btn-sm"%>
+    </div>  
+    <% end %>
+ 
+
+</div>
+   
+</body>
+</html>

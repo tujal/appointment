@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="dn">
+
+<nav class ="navbar n">
+    <h5 class="text-white">Dr.Appointments<span class="text-primary"> System<span></h5>
+    <div>
+    <%= link_to 'Edit', edit_doctor_path(@doctor), class:"btn btn-success btn-sm" %>
+    <%= link_to 'Delete', doctor_path(@doctor), data:{
+        turbo_method: :delete,
+        turbo_confirm:"Are you sure ?"
+    } , class:"btn btn-danger btn-sm" %>
+    </div>
+</nav>
+<% flash.each do | message | %>
+    <div , class="alert alert-success", role="alert">
+    <%= message %>
+    </div>
+    <% end %>
+<h5 class="text-center"> Doctor Details </h5>
+    <div class="container bg-white", style="width:50%">
+   
+        <table class= "table text-center">
+            <tr>
+                <td><strong>Name :-</strong></td>
+                <td><%= @doctor.name %></td>
+            </tr>
+            <tr>
+                <td><strong>Specialties :-</strong></td>
+                <td><%= @doctor.specialties%></td>
+            </tr>
+            <tr>
+                <td><strong>Contact No :-</strong></td>
+                <td><%= @doctor.phone%></td>
+            </tr>
+        </table> 
+    </div>   
+    <% if @doctor.appointments.any? %>
+    <h5 class="text-center"> Appointments Details </h5>
+<div class="container bg-white" style="width:50%">
+           
+    <table class= "table text-center">
+            <thead>
+            <th> Appointments Date </th>
+            <th> Patient Name</th>
+            <th> Gender </th>
+            </thead>
+        <tbody>
+            <% @doctor.appointments.each do | app | %>
+            <tr>
+                <td><%= app.appointment_date %></td>
+                <td><%= app.patient.name %></td>
+                <td><%= app.patient.gender%></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table> 
+   <p class="text-center"> <%= link_to "Back" , root_path, class:"btn btn-primary btn-sm" %></p>
+</div>
+<% else %>
+<p class="text-center"> <%= link_to "Back" , root_path, class:"btn btn-primary btn-sm" %></p>
+
+<% end %>
+
+</body>
+</html>

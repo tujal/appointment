@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<%= render "doctors/nav" %>
+<div class="container" style="width:50%; margin-top:10px">
+<h3> Edit Doctor Details</h3>
+<%= form_with model: @doctor do | form | %>
+    <div>
+        <%= form.label :name %>
+        <%= form.text_field :name, class:"form-control" %>
+    </div>
+    <div>
+        <%= form.label :specialties %>
+        <%= form.text_field :specialties, class:"form-control" %>
+    </div>
+    <div>
+        <%= form.label :phone %>
+        <%= form.telephone_field :phone, class:"form-control" %>
+    </div>
+    <div><br>
+         <%= form.submit class:"btn btn-success btn-sm"%>
+         <%= link_to "Bank", root_path, class:"btn btn-outline-primary btn-sm"%>
+    </div>  
+    <% end %>
+ 
+
+</div>
+    
+</body>
+</html>

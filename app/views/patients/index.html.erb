@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="pb">
+<nav class ="navbar n">
+    <h5 class="text-white">Dr.Appointments<span class="text-primary"> System<span></h5>
+    <%= link_to 'New Patient', new_patient_path, class:"btn btn-success btn-sm" %> 
+</nav>
+<h3 class="text-center"> Patient listing </h3>
+    <div class="container bg-white">       
+    <table class="table">
+            <thead>
+                <th>Name </th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <% @patients.reverse.each do |patient|%>
+                    <tr>
+                        <td><%= patient.name %></td>
+                        <td><%= patient.age %></td>
+                        <td><%= patient.gender %></td>
+                        <td><%= link_to 'view' , patient , class:"btn btn-outline-success btn-sm" %></td>
+                    </tr>
+                    <% end %>
+            </tbody>
+    </table>   
+    <%= link_to "Back", root_path, class:"btn btn-primary btn-sm" %> 
+    <%= paginate @patients %>
+    </div>  
+</body>
+</html>
